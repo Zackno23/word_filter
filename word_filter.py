@@ -32,7 +32,6 @@ def ng_word_list(filter_list):  # NGワードの設定
 repeat = "y"
 while repeat.lower() == 'y':
     my_filter = WordFilter(ng_word_list(fil))
-    # fil = ng_word_list(fil)
     while True:
         print(my_filter.detect('昨日のアーセナルの試合は熱かった', censored))
         print(my_filter.detect('昨日のリバプールの試合は熱かった', censored))
