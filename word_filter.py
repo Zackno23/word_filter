@@ -13,7 +13,7 @@ print("NGワードを設定してください")
 print("NGワードを入力し終わったら、半角でeを入力してください")
 
 
-def ng_word_list():
+def ng_word_list():  # NGワードの設定
     fil = []
     counter = 1
     while True:
@@ -25,6 +25,7 @@ def ng_word_list():
     return fil
 
 
+#repeat == yである限り、フィルタリングを繰り返せる。
 repeat = "y"
 while repeat.lower() == 'y':
     my_filter = WordFilter(ng_word_list())
