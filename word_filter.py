@@ -11,6 +11,7 @@ class WordFilter:
 
 print("NGワードを設定してください")
 print("NGワードを入力し終わったら、半角でeを入力してください")
+censored = input('伏せ字を設定してください：')
 
 
 def ng_word_list():  # NGワードの設定
@@ -29,8 +30,8 @@ def ng_word_list():  # NGワードの設定
 repeat = "y"
 while repeat.lower() == 'y':
     my_filter = WordFilter(ng_word_list())
-    print(my_filter.detect('昨日のアーセナルの試合は熱かった', 'ピー'))
-    print(my_filter.detect('昨日のリバプールの試合は熱かった', 'ピー'))
+    print(my_filter.detect('昨日のアーセナルの試合は熱かった', censored))
+    print(my_filter.detect('昨日のリバプールの試合は熱かった', censored))
     repeat = input('フィルタリングをし直しますか?(y/n)')
     if repeat.lower() == 'n':
         break
