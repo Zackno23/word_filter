@@ -4,10 +4,8 @@ class WordFilter:
 
     def detect(self, sentence):
         if self.search in sentence:
-            return True
-        else:
-            return False
-        return result
+            sentence = sentence.replace('アーセナル', '<censored>')
+        return sentence
 
 
 my_filter = WordFilter("アーセナル")
