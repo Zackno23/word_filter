@@ -8,7 +8,8 @@ class WordFilter:
                 sentence = sentence.replace(self.search[i], censored)
         return sentence
 
-
+print("NGワードを設定してください")
+print("NGワードを入力し終わったら、半角でeを入力してください")
 fil = []
 counter = 1
 while True:
