@@ -3,7 +3,7 @@ class WordFilter:
         self.search = filter1
 
     def detect(self, sentence, censored):
-        for i in range(0, len(self.search)):
+        for i in range(len(self.search)):
             if self.search[i] in sentence:
                 sentence = sentence.replace(self.search[i], censored)
         return sentence
@@ -13,25 +13,17 @@ print("NGワードを設定してください")
 print("NGワードを入力し終わったら、半角でeを入力してください")
 censored = input('伏せ字を設定してください：')
 fil = []
+# counter = 1
+while True:
+    ng_word = input('NGワード:' + str(len(fil) + 1) + ':')
+    if ng_word == 'e':
+        break
+    fil.append(ng_word)
 
-
-def ng_word_list(filter_list):  # NGワードの設定
-    counter = 1
-    while True:
-        global fil
-        ng_word = input('NGワード：' + str(counter) + ':')
-        if ng_word == 'e':
-            break
-        filter_list.append(ng_word)
-        counter += 1
-        fil = filter_list
-    return filter_list
-
-
-#repeat == yである限り、フィルタリングを繰り返せる。
+# repeat == yである限り、フィルタリングを繰り返せる。
 repeat = "y"
 while repeat.lower() == 'y':
-    my_filter = WordFilter(ng_word_list(fil))
+    my_filter = WordFilter(fil)
     while True:
         print(my_filter.detect('昨日のアーセナルの試合は熱かった', censored))
         print(my_filter.detect('昨日のリバプールの試合は熱かった', censored))
@@ -40,7 +32,7 @@ while repeat.lower() == 'y':
             break
         else:
             while True:
-                for i in range(0, len(fil)):
+                for i in range(len(fil)):
                     print(i + 1, fil[i], '', end="")
                 change_NG_Number = int(input('どのNGワードを変更しますか?'))
                 if change_NG_Number < 1 or change_NG_Number > len(fil):
